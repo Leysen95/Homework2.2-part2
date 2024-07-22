@@ -2,28 +2,26 @@ package Service;
 
 import model.Bicycle;
 import model.Car;
+import model.Transport;
 import model.Truck;
 
 public class ServiceStation {
-    public void check(Car car, Bicycle bicycle, Truck truck) {
-        if (car != null) {
-            System.out.println("Обслуживаем " + car.modelName);
-            for (int i = 0; i < car.wheelsCount; i++) {
-                car.updateTyre();
-            }
-            car.checkEngine();
-        } else if (truck != null) {
-            System.out.println("Обслуживаем " + truck.modelName);
-            for (int i = 0; i < truck.wheelsCount; i++) {
-                truck.updateTyre();
-            }
-            truck.checkEngine();
-            truck.checkTrailer();
-        } else if (bicycle != null) {
-            System.out.println("Обслуживаем " + bicycle.modelName);
-            for (int i = 0; i < bicycle.wheelsCount; i++) {
-                bicycle.updateTyre();
-            }
-        }
+
+    public void checkTransport(Transport transport) {
+        System.out.printf("Обслуживается: [%s]\n", transport.getModelName());
+        transport.check();
+    }
+
+    public void check(Car car) {
+        car.check();
+    }
+
+    public void check(Bicycle bicycle) {
+        bicycle.check();
+    }
+
+    public void check(Truck truck) {
+        truck.check();
+
     }
 }

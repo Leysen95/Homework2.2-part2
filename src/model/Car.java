@@ -1,14 +1,18 @@
 package model;
 
-public class Car {
-    public String modelName;
-    public int wheelsCount;
+public class Car extends Transport{
 
-    public void updateTyre() {
-        System.out.println("Меняем покрышку");
+    public Car(String modelName, int wheelsCount) {
+        super(modelName, wheelsCount);
     }
 
-    public void checkEngine() {
+    @Override
+    public void check() {
+        super.check();
+        checkEngine();
+    }
+
+    private void checkEngine() {
         System.out.println("Проверяем двигатель");
     }
 }
